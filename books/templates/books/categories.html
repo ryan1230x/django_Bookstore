@@ -1,0 +1,17 @@
+{% extends 'pages/base.html' %}
+{% block content %}
+<div class="container section-padding">
+  {% block sidenav %} {% include 'books/layout/sidenav.html' %} {% endblock %}
+
+  <h1 class="display-4 text-muted text-right p-3">{{ title }}</h1>
+  <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/store/">All Books</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+  </ol>
+</nav>
+  {% include 'books/layout/product_list.html' %}
+  {% include 'books/layout/pagination_for_pages.html' %}
+</div>
+{{object.type}}
+{% endblock %}

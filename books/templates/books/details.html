@@ -1,0 +1,47 @@
+{% extends 'pages/base.html' %}
+
+{% block content%}
+<div class="container section-padding">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/store/">All Books</a></li>
+      <li class="breadcrumb-item active"><a href="/store/{{type}}">{{ type }}</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+    </ol>
+  </nav>
+  <!-- Detail description of product -->
+  <div class="row" id="detail-book">
+    <div class="col-sm-12 col-md-6" id="detail-img">
+      <img src="/media/{{object.image}}" alt="" class="img-fluid mx-auto d-block" width="300px" height="500px">
+    </div>
+    <div class="col-sm-12 col-md-6 p-4" id="detail-info">
+      <h1 class="display-4 text-muted font-weight-bold">{{object.title}}</h1>
+      <h3 class="text-muted font-weight-bold">By {{ object.author }}</h3>
+      <h2 class="text-right" style="color:var(--blue)">${{object.price}}</h2>
+      <p class="p-2 text-justify text-muted">{{object.description}}</p>
+      <span>
+        <button type="button" name="button" class="btn btn-primary">Buy Now</button>
+        <button type="button" name="button" class="btn btn-info">Rent Now</button>
+        <button type="button" name="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#cartModal">Add To Cart</button>
+      </span>
+    </div>
+
+  </div>
+
+  <!-- Modal -->
+<div class="modal fade" id="cartModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">      
+      <div class="modal-body">
+        <p class="text-muted text-center">This Book Has been added to Your Cart</p>                
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Undo</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+{% endblock%}
